@@ -8,6 +8,8 @@ and not set -q TMUX
 	tmux -u
 end
 
+set -gx GPG_TTY (tty)
+
 alias nv 'nvim'
 alias :q 'exit'
 alias please 'sudo'
@@ -44,3 +46,4 @@ alias untar 'tar -zxvf '
 alias upd '/usr/bin/garuda-update'
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
+
