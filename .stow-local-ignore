@@ -25,3 +25,6 @@ _darcs
 
 ^/LICENSE.*
 ^/COPYING
+
+kickstart.sh
+utils.list
