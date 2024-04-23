@@ -11,7 +11,7 @@ import = [
 
 [font]
     normal = {family = "JetBrainsMono Nerd Font", style = "bold"}
-    size = 11
+    size = 10
 
 [cursor]
     style = {shape = "Underline" , blinking = "On"}

@@ -104,6 +104,9 @@ echo "All the packages are listed in utils.list. Modify this file with the list 
 cat utils.list | sudo pacman -S -
 errorCheck
 
+echo "Setting-up the fish as a default default shell"
+errorCheck
+
 echo "Installing oh-my-posh to make the prompt look fancy."
 curl -s https://ohmyposh.dev/install.sh | bash -s
 errorCheck
