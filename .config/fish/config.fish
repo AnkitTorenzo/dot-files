@@ -1,6 +1,6 @@
 if status is-interactive
 	oh-my-posh init fish --config "~/oh-my-posh/themes/blueish.omp.json" | source
-	neofetch
+    fastfetch
 end
 
 if status is-interactive
