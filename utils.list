@@ -11,3 +11,5 @@ ugrep
 curl
 wget
 stow
+zoxide
+fzf

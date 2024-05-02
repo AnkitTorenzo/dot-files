@@ -47,3 +47,5 @@ alias upd '/usr/bin/garuda-update'
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
 
+
+zoxide init --cmd cd fish | source
