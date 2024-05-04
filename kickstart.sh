@@ -108,7 +108,7 @@ echo "Setting-up the fish as a default default shell"
 errorCheck
 
 echo "Installing oh-my-posh to make the prompt look fancy."
-curl -s https://ohmyposh.dev/install.sh | bash -s
+#curl -s https://ohmyposh.dev/install.sh | bash -s
 errorCheck
 
 echo "Installing JetBrainsMono Nerd Fonts for Alacritty config."
