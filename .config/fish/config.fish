@@ -1,6 +1,6 @@
 if status is-interactive
 	oh-my-posh init fish --config "~/oh-my-posh/themes/blueish.omp.json" | source
-	neofetch
+    fastfetch
 end
 
 if status is-interactive
@@ -47,3 +47,5 @@ alias upd '/usr/bin/garuda-update'
 alias vdir 'vdir --color=auto'
 alias wget 'wget -c '
 
+
+zoxide init --cmd cd fish | source

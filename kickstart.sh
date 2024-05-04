@@ -40,7 +40,8 @@ askForBackup()
 checkForDirAndRemove()
 {
     echo "Checking for $1"
-    if [[ -f $1 || -L $1 ]];
+
+    if [[ -d $1 || -L $1 ]]
     then
         echo "Found $1 : Removing the item"
         rm -rf $1
@@ -108,8 +109,14 @@ echo "Setting-up the fish as a default default shell"
 errorCheck
 
 echo "Installing oh-my-posh to make the prompt look fancy."
-#curl -s https://ohmyposh.dev/install.sh | bash -s
+wget https://ohmyposh.dev/install.sh 
 errorCheck
+
+chmod +x install.sh
+sudo ./install.sh 
+errorCheck
+
+rm -f ./install.sh
 
 echo "Installing JetBrainsMono Nerd Fonts for Alacritty config."
 oh-my-posh font install "JetBrainsMono"
