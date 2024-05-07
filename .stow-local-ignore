@@ -27,4 +27,5 @@ _darcs
 ^/COPYING
 
 kickstart.sh
+nothing.sh
 utils.list

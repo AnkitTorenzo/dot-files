@@ -1,5 +1,5 @@
 if status is-interactive
-	oh-my-posh init fish --config "~/oh-my-posh/themes/blueish.omp.json" | source
+	oh-my-posh init fish --config "~/.config/omp/custom.omp.json" | source
     fastfetch
 end
 
