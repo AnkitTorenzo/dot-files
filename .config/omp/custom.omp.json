@@ -10,8 +10,8 @@
                 {
                     "type": "os",
                     "style": "plain",
-                    "foreground": "#0f94d2",
-                    "template": "{{.Icon}} ",
+                    "foreground": "#ffffff",
+                    "template": "{{ .Icon }} ",
                     "properties": {
                         "macos": "mac"
                     }
@@ -23,7 +23,7 @@
                     "foreground_templates":[
                         "{{ if eq .UserName 'root' }}#f1184c{{ end }}"
                     ],   
-                    "template": "[{{ .UserName }}@{{ .HostName }}]"
+                    "template": "[{{ .UserName }}]"
                 },
                 {
                     "type": "battery",
@@ -48,7 +48,7 @@
                 {
                     "type": "git",
                     "style": "plain",
-                    "foreground": "#ffffff",
+                    "foreground": "#f54d27",
                     "template": "[{{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }}]",
                     "properties": {
                         "fetch_stash_count": true,
