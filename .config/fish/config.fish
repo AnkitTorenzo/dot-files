@@ -1,6 +1,6 @@
 if status is-interactive
 	oh-my-posh init fish --config "~/.config/omp/custom.omp.json" | source
-    fastfetch
+    fastfetch --logo arch
 end
 
 if status is-interactive

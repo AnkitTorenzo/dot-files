@@ -13,3 +13,4 @@ wget
 stow
 zoxide
 fzf
+alacritty
