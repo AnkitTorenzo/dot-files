@@ -75,7 +75,7 @@
                         "{{ if eq .Code 0 }}#abe9b3{{ end }}",
                         "{{ if gt .Code 0 }}#f1184c{{ end }}"
                     ],
-                    "template": "[{{ if eq .Code 0 }}\udb82\udc55{{ end }}{{ if gt .Code 0 }} {{ .Code }}{{ end }}]",
+                    "template": "[{{ if eq .Code 0 }}\udb82\udc55 {{ end }}{{ if gt .Code 0 }} {{ .Code }}{{ end }}]",
                     "properties": {
                         "always_enabled": true
                     }
