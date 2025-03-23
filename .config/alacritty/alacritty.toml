@@ -1,20 +1,15 @@
-import = [
-    "~/.config/alacritty/catppuccin-mocha.toml"
-]
-
-[shell]
-	program = "/bin/fish"
-
 [env]
     TERM = "xterm-256color"
 
 [window]
     startup_mode = "Maximized"
     blur = true
+    decorations = "Transparent" 
+    opacity = 0.85
 
 [font]
     normal = {family = "JetBrainsMono Nerd Font", style = "bold"}
-    size = 10
+    size = 12
 
 [cursor]
     style = {shape = "Underline" , blinking = "On"}
@@ -22,4 +17,10 @@ import = [
 
 [mouse]
     hide_when_typing = true
-    
+
+
+[general]
+import = [
+    "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
