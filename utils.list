@@ -1,4 +1,3 @@
-fish
 eza
 unzip
 git
@@ -14,3 +13,5 @@ stow
 zoxide
 fzf
 alacritty
+zsh
+
