@@ -3,7 +3,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 #Adding path to zsh path variable
-export PATH=/home/ankit/.local/bin:$PATH
+export PATH=/home/ankit/.local/bin:/home/ankit/Android/Sdk/platform-tools:$PATH
 
 #init OMP for zsh
 eval "$(oh-my-posh init zsh --config "~/.config/omp/custom.omp.json")"
@@ -86,6 +86,7 @@ alias la='eza -a --color=always --group-directories-first --icons'  # all files 
 alias ll='eza -l --color=always --group-directories-first --icons'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
 alias l.='eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+alias cp='cp -v'
 
 # Common use
 alias ..='cd ..'
@@ -93,11 +94,9 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias big='expac -H M "%m\t%n" | sort -h | nl'     # Sort installed packages according to size in MB (expac must be installed)
 
 alias dir='dir --color=auto'
 alias fixpacman='sudo rm /var/lib/pacman/db.lck'
-alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
 alias grep='ugrep --color=auto'
 alias egrep='ugrep -E --color=auto'
 alias fgrep='ugrep -F --color=auto'
@@ -111,6 +110,7 @@ alias untar='tar -zxvf '
 alias upd='/usr/bin/garuda-update'
 alias vdir='vdir --color=auto'
 alias wget='wget -c '
+alias zed='zeditor'
 
 # alias cd='z'
 ## aliases are complete================================================================================================================

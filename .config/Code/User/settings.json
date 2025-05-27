@@ -1,0 +1,34 @@
+{
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontWeight": "700",
+    "workbench.sideBar.location": "right",
+    "vim.cursorStylePerMode.visual": "block-outline",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "vim.smartRelativeLine": true,
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#00ffff",
+        "editorCursor.background": "#ff0000",
+    },
+    "editor.minimap.renderCharacters": false,
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "cSpell.userWords": [
+        "Behaviour",
+        "Dont",
+        "interactable",
+        "Lerp",
+        "Mathf",
+        "UGUI"
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-t>": false,
+        "<C-p>": false
+    },
+    "security.workspace.trust.untrustedFiles": "newWindow",
+}

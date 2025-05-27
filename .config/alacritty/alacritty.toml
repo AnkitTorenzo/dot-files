@@ -9,7 +9,7 @@
 
 [font]
     normal = {family = "JetBrainsMono Nerd Font", style = "bold"}
-    size = 12
+    size = 15
 
 [cursor]
     style = {shape = "Underline" , blinking = "On"}

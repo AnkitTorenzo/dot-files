@@ -87,7 +87,7 @@
           "foreground": "#007ACC",
           "template": " [\uf4ab {{ .CurrentDate | date .Format }}] ",
           "properties": {
-            "time_format": "15:04:05 pm"
+            "time_format": "03:04:05 PM"
           },
           "style": "plain",
           "type": "time"
