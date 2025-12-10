@@ -19,7 +19,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "[{{ .UserName }}]",
+          "template": "[\uedc5 {{ .UserName }}@{{ .HostName }}]",
           "foreground": "#26C6DA",
           "type": "session",
           "style": "plain",
