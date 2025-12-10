@@ -2,6 +2,9 @@
     "workbench.iconTheme": "catppuccin-mocha",
     "workbench.colorTheme": "Catppuccin Mocha",
     "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontWeight": "700",
     "editor.fontSize": 16,
     "editor.fontWeight": "700",
     "workbench.sideBar.location": "right",
@@ -33,4 +36,7 @@
         "<C-p>": false
     },
     "security.workspace.trust.untrustedFiles": "newWindow",
+    "git.blame.editorDecoration.enabled": true,
+    "python.defaultInterpreterPath": "/home/linuxbrew/.linuxbrew/bin/python3",
+    "explorer.confirmDelete": false,
 }

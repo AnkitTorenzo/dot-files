@@ -1,12 +1,9 @@
-if [ -z "$TMUX" ]; then
-  tmux -u attach-session || tmux -u new-session
-fi
-
 #Adding path to zsh path variable
-export PATH=/home/ankit/.local/bin:/home/ankit/Android/Sdk/platform-tools:$PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH=/home/linuxbrew/.linuxbrew/bin:/home/ankitbhalodiya/.local/bin:/home/ankit/Android/Sdk/platform-tools:$PATH
 
 #init OMP for zsh
-eval "$(oh-my-posh init zsh --config "~/.config/omp/custom.omp.json")"
+eval "$(oh-my-posh init zsh --config ~/.config/omp/custom.omp.json)"
 
 # Set zinit path.
 ZINIT_HOME="${XDH_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -86,7 +83,6 @@ alias la='eza -a --color=always --group-directories-first --icons'  # all files 
 alias ll='eza -l --color=always --group-directories-first --icons'  # long format
 alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
 alias l.='eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
-alias cp='cp -v'
 
 # Common use
 alias ..='cd ..'
@@ -104,6 +100,7 @@ alias grubup='sudo update-grub'
 alias hw='hwinfo --short'                          # Hardware Info
 alias ip='ip -color'
 alias rmpkg='sudo pacman -Rdd'
+alias cp='cp -v'
 
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
@@ -112,9 +109,13 @@ alias vdir='vdir --color=auto'
 alias wget='wget -c '
 alias zed='zeditor'
 
-# alias cd='z'
 ## aliases are complete================================================================================================================
 
 if [[ $- == *i* ]]; then
     fastfetch --logo arch
+fi
+
+## Open the tmux as the start of zsh
+if [ -z "$TMUX" ]; then
+  tmux -u attach-session || tmux -u new-session
 fi

@@ -84,6 +84,13 @@
           "style": "plain"
         },
         {
+          "style": "plain",
+          "foreground": "#FFE873",
+          "template": "[ {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}({{ .Full }}){{ end }}]",
+          "type": "python",
+          "display_mode": "always"
+        },
+        {
           "foreground": "#007ACC",
           "template": " [\uf4ab {{ .CurrentDate | date .Format }}] ",
           "properties": {
