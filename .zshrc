@@ -1,6 +1,6 @@
 #Adding path to zsh path variable
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH=/home/linuxbrew/.linuxbrew/bin:/home/ankitbhalodiya/.local/bin:/home/ankit/Android/Sdk/platform-tools:$PATH
+export PATH=/home/linuxbrew/.linuxbrew/bin:/home/ghost/.local/bin:/home/ankit/Android/Sdk/platform-tools:$PATH
 
 #init OMP for zsh
 eval "$(oh-my-posh init zsh --config ~/.config/omp/custom.omp.json)"

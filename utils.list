@@ -12,6 +12,6 @@ wget
 stow
 zoxide
 fzf
-alacritty
+ghostty
 zsh
-
+ttf-jetbrains-mono-nerd

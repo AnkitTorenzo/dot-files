@@ -118,10 +118,6 @@ errorCheck
 
 rm -f ./install.sh
 
-echo "Installing JetBrainsMono Nerd Fonts for Alacritty config."
-oh-my-posh font install "JetBrainsMono"
-errorCheck
-
 echo "Installing Tmux Package Manager."
 mkdir -p ~/.tmux/plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -1329,7 +1329,7 @@ maximize = false
 # On macOS, this setting does not work if window-decoration is set to
 # "false", because native fullscreen on macOS requires window decorations
 # to be set.
-fullscreen = true
+fullscreen = false
 
 # The title Ghostty will use for the window. This will force the title of the
 # window to be this title at all times and Ghostty will ignore any set title
