@@ -1,1 +1,5 @@
 
+[submodule "nvim"]
+	path = .config/nvim
+	url = git@me.github.com:AnkitTorenzo/kickstart.nvim.git
+	branch = custom-settings
