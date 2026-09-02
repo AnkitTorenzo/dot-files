@@ -1,6 +1,7 @@
 #Adding path to zsh path variable
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.local/bin:~/Android/Sdk/platform-tools:$PATH
+export PATH=$PATH:$(go env GOPATH)/bin
 
 #init OMP for zsh
 eval "$(oh-my-posh init zsh --config ~/.config/omp/custom.omp.json)"
@@ -77,12 +78,12 @@ alias :q='exit'
 alias please='sudo'
 
 # Garuda aliases for 'ls' command
-alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
-alias lsz='eza -al --color=always --total-size --group-directories-first --icons' # include file size
-alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll='eza -l --color=always --group-directories-first --icons'  # long format
-alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
-alias l.='eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+alias ls='eza -al --color=always --group-directories-first --icons always ' # preferred listing
+alias lsz='eza -al --color=always --total-size --group-directories-first --icons always ' # include file size
+alias la='eza -a --color=always --group-directories-first --icons always '  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons always '  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons always ' # tree listing
+alias l.='eza -ald --color=always --group-directories-first --icons .* ' # show only dotfiles
 
 # Common use
 alias ..='cd ..'
@@ -119,3 +120,27 @@ fi
 if [ -z "$TMUX" ]; then
   tmux -u attach-session || tmux -u new-session
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+        . "/usr/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ghost/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
