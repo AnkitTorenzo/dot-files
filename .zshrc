@@ -1,5 +1,6 @@
 #Adding path to zsh path variable
 export PYENV_ROOT="$HOME/.pyenv"
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.local/bin:~/Android/Sdk/platform-tools:$PATH
 export MANPAGER='nvim +Man!'
 export PATH=$PATH:$(go env GOPATH)/bin
@@ -116,7 +117,7 @@ alias zed='zeditor'
 ## aliases are complete================================================================================================================
 
 if [[ $- == *i* ]]; then
-    fastfetch --logo arch
+    fastfetch --config "${XDG_CONFIG_HOME}/fastfetch/auto.jsonc"
 fi
 
 ## Open the tmux as the start of zsh
