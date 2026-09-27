@@ -1,0 +1,83 @@
+[general]
+font-sans = "JetBrainsMono Nerd Font Mono"
+font-mono = "JetBrainsMono Nerd Font Mono"
+
+[bar]
+scale = 0.699999988079071
+background-opacity = 20
+button-variant = "basic"
+button-label-size = 1.2000000476837158
+button-label-weight = "bold"
+button-border-location = "none"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "dashboard",
+    "hyprland-workspaces",
+]
+center = ["clock"]
+right = [
+    "weather",
+    "bluetooth",
+    "network",
+    "brightness",
+    "volume",
+    "battery",
+    "systray",
+    "notifications",
+]
+
+[styling.palette]
+bg = "#11111b"
+surface = "#181825"
+elevated = "#1e1e2e"
+fg = "#cdd6f4"
+fg-muted = "#bac2de"
+primary = "#b4befe"
+red = "#f38ba8"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+blue = "#74c7ec"
+
+[modules.battery]
+label-show = false
+
+[modules.bluetooth]
+label-show = false
+
+[modules.brightness]
+label-show = false
+
+[modules.clock]
+format = "%b %d %y [%H%M]"
+border-color = "status-error"
+icon-bg-color = "status-error"
+label-color = "status-error"
+
+[modules.cpu]
+border-color = "status-error"
+icon-bg-color = "status-error"
+label-color = "status-error"
+
+[modules.hyprland-workspaces]
+min-workspace-count = 5
+display-mode = "icon"
+app-icons-show = true
+border-show = true
+
+[modules.network]
+label-show = false
+
+[modules.notifications]
+label-show = false
+
+[modules.systray]
+border-color = "yellow"
+
+[modules.volume]
+label-show = false
+
+[modules.weather]
+location = "Mumbai"

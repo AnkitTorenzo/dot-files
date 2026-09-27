@@ -1,10 +1,13 @@
 #Adding path to zsh path variable
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.local/bin:~/Android/Sdk/platform-tools:$PATH
+export MANPAGER='nvim +Man!'
 export PATH=$PATH:$(go env GOPATH)/bin
 
-#init OMP for zsh
-eval "$(oh-my-posh init zsh --config ~/.config/omp/custom.omp.json)"
+export EDITOR='nvim'
+
+#init Starship for zsh
+eval "$(starship init zsh)"
 
 # Set zinit path.
 ZINIT_HOME="${XDH_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
