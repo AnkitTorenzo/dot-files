@@ -14,4 +14,6 @@ zoxide
 fzf
 ghostty
 zsh
+tree-sitter-cli
+cliphist
 ttf-jetbrains-mono-nerd
