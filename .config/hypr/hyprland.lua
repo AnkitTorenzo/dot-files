@@ -47,6 +47,7 @@ local textCopyWatch = "wl-paste --type text --watch cliphist store"
 local imageCopyWatch = "wl-paste --type image --watch cliphist store"
 local clipboardHistory = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
 local panel = "wayle panel "
+local web_browser = "Apps/Helium-Browser/helium-browser.AppImage"
 
 
 print(clipboardHistory)
@@ -276,9 +277,10 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(clipboardHistory))
-local closeWindowBind = hl.bind(mainMod .. " + W", hl.dsp.window.close())
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(web_browser))
+local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
@@ -378,3 +380,16 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+------------------------
+---- Plugin Configs ----
+------------------------
+if hl.plugin.dynamic_cursors then
+    hl.config{ plugin = { dynamic_cursors = {
+        enabled = true,
+        mode = "stretch",
+        shake = {
+            enabled = true
+        }
+    }}}
+end

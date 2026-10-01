@@ -19,6 +19,7 @@ left = [
 ]
 center = ["clock"]
 right = [
+    "systray",
     "weather",
     "bluetooth",
     "network",
@@ -78,6 +79,8 @@ border-color = "yellow"
 
 [modules.volume]
 label-show = false
+scroll-up = "wayle audio output-volume +5"
+scroll-down = "wayle audio output-volume -5"
 
 [modules.weather]
 location = "Mumbai"
