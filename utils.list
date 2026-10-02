@@ -3,7 +3,7 @@ unzip
 git
 neovim
 bat
-bpytop
+btop
 fastfetch
 tmux
 ugrep

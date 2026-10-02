@@ -1,10 +1,9 @@
 #Adding path to zsh path variable
-export PYENV_ROOT="$HOME/.pyenv"
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH=/home/linuxbrew/.linuxbrew/bin:$HOME/.local/bin:~/Android/Sdk/platform-tools:$PATH
-export MANPAGER='nvim +Man!'
+export PATH=$HOME/.local/bin:~/Android/Sdk/platform-tools:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
 
+export MANPAGER='nvim +Man!'
 export EDITOR='nvim'
 
 #init Starship for zsh
@@ -40,11 +39,7 @@ zinit snippet OMZP::command-not-found
 
 ## auto load auto-compaletion
 autoload -Uz compinit && compinit
-
 zinit cdreplay -q
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## custom key bindings
 bindkey '^f' autosuggest-accept
@@ -90,27 +85,16 @@ alias lt='eza -aT --color=always --group-directories-first --icons always ' # tr
 alias l.='eza -ald --color=always --group-directories-first --icons .* ' # show only dotfiles
 
 # Common use
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
-
-alias dir='dir --color=auto'
-alias fixpacman='sudo rm /var/lib/pacman/db.lck'
-alias grep='ugrep --color=auto'
-alias egrep='ugrep -E --color=auto'
-alias fgrep='ugrep -F --color=auto'
+alias grep='ugrep --color=always '
+alias egrep='ugrep -E --color=auto '
+alias fgrep='ugrep -F --color=auto '
 alias grubup='sudo update-grub'
-alias hw='hwinfo --short'                          # Hardware Info
-alias ip='ip -color'
-alias rmpkg='sudo pacman -Rdd'
+alias hw='hwinfo --short '                          # Hardware Info
+alias ip='ip -color '
 alias cp='cp -v'
 
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
-alias upd='/usr/bin/garuda-update'
-alias vdir='vdir --color=auto'
 alias wget='wget -c '
 alias zed='zeditor'
 
