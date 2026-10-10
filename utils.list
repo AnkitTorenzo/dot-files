@@ -12,7 +12,7 @@ wget
 stow
 zoxide
 fzf
-ghostty
+alacritty
 zsh
 tree-sitter-cli
 cliphist

@@ -40,7 +40,7 @@ end
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal = "ghostty"
+local terminal = "alacritty"
 local fileManager = "thunar"
 local menu = "rofi -show drun"
 local textCopyWatch = "wl-paste --type text --watch cliphist store"
@@ -114,8 +114,9 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = {"rgba(74c7ecee)", "rgba(94e2d5ee)"}, angle = 45 },
+            inactive_border = {colors = {"rgba(11111bff)", "rgba(cdd6f4ff)"}, angle = 90},
+            --inactive_border = "rgba(595959aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -282,7 +283,7 @@ hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(clipboardHistory))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(web_browser))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd('hyprshutdown -t "Bye bye..." -p "poweroff"'))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(menu))
