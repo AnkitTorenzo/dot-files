@@ -1,3 +1,6 @@
+
+-- require("")
+
 ------------------
 ---- MONITORS ----
 ------------------
@@ -9,6 +12,13 @@ hl.monitor({
     position = "auto",
     scale    = "auto",
 })
+
+---------------------------
+----- Local Variables -----
+---------------------------
+
+local wallpaper_index = 0
+
 
 ---------------------
 ----- Functions -----
@@ -36,21 +46,54 @@ local function getRandomCursorTheme()
     return cursorThemes[randomIndex]
 end
 
+local function randomWallpaper()
+    local wallpaper_dir = os.getenv('HOME') .. "/dot-files/wallpapers/"
+    local files = io.popen("ls -- "..wallpaper_dir):lines()
+    local wallpapers = {}
+
+    for wp in files do
+        table.insert(wallpapers, wallpaper_dir .. wp);
+    end
+
+    print("Current Wallpaper Index: "..wallpaper_index);
+    if wallpaper_index <= 0 then
+        wallpaper_index = math.random(1, #wallpapers)
+        print("From Random New Wallpaper Index: "..wallpaper_index);
+    else
+        wallpaper_index = ((wallpaper_index + 1) % #wallpapers) + 1
+        print("New Wallpaper Index: "..wallpaper_index);
+    end
+
+    return wallpapers[wallpaper_index]
+end
+
+local function setWallpaper()
+
+    local wallpaper_path = randomWallpaper()
+    print("Applying new wallpaper: " .. wallpaper_path)
+    local cmd = "hyprctl hyprpaper wallpaper 'eDP-1," .. wallpaper_path .. ", cover'"
+
+    local handle io.popen(cmd)
+    if handle then
+        local result handle:read('*a')
+        handle:close()
+        print('hyprctl logs: ' .. tostring(result))
+    end
+end
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal = "alacritty"
-local fileManager = "thunar"
+local panel = "wayle panel "
+local terminal = "ghostty"
 local menu = "rofi -show drun"
+local tmux_client_detatch = "tmux detach-client"
+local web_browser = "Apps/Helium-Browser/helium-browser.AppImage"
 local textCopyWatch = "wl-paste --type text --watch cliphist store"
 local imageCopyWatch = "wl-paste --type image --watch cliphist store"
 local clipboardHistory = "cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"
-local panel = "wayle panel "
-local web_browser = "Apps/Helium-Browser/helium-browser.AppImage"
 
-
-print(clipboardHistory)
 -------------------
 ---- AUTOSTART ----
 -------------------
@@ -62,11 +105,16 @@ print(clipboardHistory)
 --
 hl.on("hyprland.start", function () 
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
+    hl.exec_cmd("hyprpaper")
     hl.exec_cmd(panel .. "start")
     hl.exec_cmd(textCopyWatch)
     hl.exec_cmd(imageCopyWatch)
+    hl.exec_cmd("hyprpm reload -n")
 end)
 
+hl.on("hyprland.shutdown", function () 
+    hl.exec_cmd(tmux_client_detatch)
+end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -98,7 +146,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+hl.permission({binary = "/usr/(bin|local/bin)/hyprlock", type = "screencopy", mode = "allow"});
 
 
 -----------------------
@@ -107,6 +156,12 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
+    debug = {
+        disable_logs = false
+    },
+    ecosystem = {
+        enforce_permissions = true
+    },
     general = {
         gaps_in  = 5,
         gaps_out = 10,
@@ -229,8 +284,8 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
 
@@ -284,12 +339,12 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(web_browser))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd('hyprshutdown -t "Bye bye..." -p "poweroff"'))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + S", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + right", setWallpaper)
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
@@ -386,11 +441,20 @@ hl.window_rule({
 ---- Plugin Configs ----
 ------------------------
 if hl.plugin.dynamic_cursors then
-    hl.config{ plugin = { dynamic_cursors = {
-        enabled = true,
-        mode = "stretch",
-        shake = {
-            enabled = true
+    hl.config{ plugin = {
+        dynamic_cursors = {
+            enabled = true,
+            mode = "stretch",
+            shake = {
+                enabled = true,
+                threshold = 4.0,
+                effects = false,
+                timeout = 1000
+            }
         }
-    }}}
+    }
+}
 end
+
+hl.timer(setWallpaper, {timeout = 1000, type = "oneshot"})
+local wallpaper_timer = hl.timer(setWallpaper, {timeout = 300000, type = "repeat"})
