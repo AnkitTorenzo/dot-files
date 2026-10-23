@@ -12,8 +12,13 @@ wget
 stow
 zoxide
 fzf
-alacritty
+ghostty
 zsh
 tree-sitter-cli
 cliphist
 ttf-jetbrains-mono-nerd
+hyprland
+hyprlock
+hyprpaper
+hyprpm
+hyprshutdown
